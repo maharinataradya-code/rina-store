@@ -1,0 +1,3560 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Rina Store - Marketplace Edukasi</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect x='3' y='3' width='58' height='58' rx='15' fill='%23ff3f91'/%3E%3Crect x='10' y='10' width='44' height='44' rx='10' fill='none' stroke='white' stroke-width='3'/%3E%3Ctext x='32' y='43' font-family='Arial,sans-serif' font-size='36' font-weight='700' text-anchor='middle' fill='white'%3ER%3C/text%3E%3C/svg%3E" />
+
+<style>
+
+/* =====================================================
+   RESET
+===================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    background: #fff5fa;
+    color: #333;
+}
+
+button {
+    cursor: pointer;
+}
+
+.hidden {
+    display: none !important;
+}
+
+
+/* =====================================================
+   NAVBAR
+===================================================== */
+
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+
+    background: linear-gradient(
+        135deg,
+        #ff3f91,
+        #ff75b2
+    );
+
+    color: white;
+    padding: 13px 5%;
+
+    display: flex;
+    align-items: center;
+    gap: 20px;
+
+    box-shadow: 0 3px 15px rgba(255, 63, 145, .25);
+}
+
+.logo {
+    font-size: 25px;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+.logo span {
+    color: #ffe4f0;
+}
+
+.search {
+    flex: 1;
+    display: flex;
+
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.search input {
+    width: 100%;
+    padding: 12px;
+
+    border: none;
+    outline: none;
+
+    font-size: 14px;
+}
+
+.search button {
+    width: 50px;
+    border: none;
+
+    background: #ffe7f1;
+    color: #ff3f91;
+
+    font-size: 18px;
+}
+
+.nav-button {
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 14px;
+}
+
+.cart-button {
+    position: relative;
+    font-size: 23px;
+}
+
+.cart-count {
+    position: absolute;
+
+    top: -8px;
+    right: -10px;
+
+    width: 19px;
+    height: 19px;
+
+    background: white;
+    color: #ff3f91;
+
+    border-radius: 50%;
+
+    font-size: 11px;
+    font-weight: bold;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/* =====================================================
+   PAGE
+===================================================== */
+
+.page {
+    min-height: calc(100vh - 70px);
+}
+
+
+/* =====================================================
+   HERO
+===================================================== */
+
+.hero {
+    margin: 25px 5%;
+
+    padding: 45px;
+
+    border-radius: 18px;
+
+    background: linear-gradient(
+        135deg,
+        #ff3f91,
+        #ff9ac7
+    );
+
+    color: white;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.hero h1 {
+    font-size: 36px;
+    margin-bottom: 12px;
+}
+
+.hero p {
+    max-width: 600px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.hero button {
+    border: none;
+
+    padding: 12px 22px;
+
+    border-radius: 8px;
+
+    background: white;
+    color: #ff3f91;
+
+    font-weight: bold;
+}
+
+.hero-icon {
+    font-size: 100px;
+}
+
+
+
+/* SHOPEE-INSPIRED HOME BANNER + CATEGORY PANEL */
+.logo { cursor:pointer; user-select:none; display:flex; align-items:center; gap:7px; }
+.logo:hover { opacity:.9; transform:translateY(-1px); }
+.logo .logo-mark { display:inline-flex; width:34px; height:36px; align-items:center; justify-content:center; border:2px solid #fff; border-radius:7px 7px 5px 5px; font-size:22px; }
+.home-promo { margin:22px 5% 0; display:grid; grid-template-columns:2.05fr 1fr; gap:8px; }
+.promo-main { min-height:205px; padding:24px 28px; color:#fff; border-radius:4px; overflow:hidden; position:relative; display:flex; align-items:center; justify-content:space-between; background:linear-gradient(110deg,#ff3f91 0%,#ff6d7f 55%,#ff9d6c 100%); }
+.promo-main:before { content:""; position:absolute; width:260px;height:260px;border:28px solid rgba(255,255,255,.13);border-radius:50%;right:20%;top:-130px; }
+.promo-copy { position:relative; z-index:1; max-width:65%; }
+.promo-kicker { font-size:12px; font-weight:bold; letter-spacing:2px; text-transform:uppercase; margin-bottom:9px; }
+.promo-main h2 { font-size:clamp(24px,3vw,38px); line-height:1.05; margin-bottom:10px; }
+.promo-main p { font-size:14px; margin-bottom:15px; }
+.promo-main button { border:0; border-radius:4px; padding:10px 18px; background:#fff; color:#f13c83; font-weight:bold; }
+.promo-art { position:relative; z-index:1; font-size:clamp(55px,7vw,90px); filter:drop-shadow(0 8px 5px #a9274d44); transform:rotate(-7deg); }
+.promo-side { display:grid; grid-template-rows:1fr 1fr; gap:8px; }
+.promo-mini { border-radius:4px; padding:16px; color:white; display:flex; align-items:center; justify-content:space-between; overflow:hidden; min-height:98px; }
+.promo-mini h3 { font-size:19px; margin-bottom:5px; }
+.promo-mini p { font-size:12px; }
+.promo-mini span { font-size:44px; margin-left:8px; }
+.promo-mini.orange { background:linear-gradient(110deg,#ff7a45,#ffad5a); }
+.promo-mini.purple { background:linear-gradient(110deg,#7548d8,#b27af0); }
+.quick-links { margin:0 5%; padding:20px 8px 17px; display:grid; grid-template-columns:repeat(6,1fr); gap:10px; background:#fff; }
+.quick-link { border:0; background:transparent; display:flex; flex-direction:column; align-items:center; gap:8px; color:#444; font-size:12px; text-align:center; }
+.quick-link .quick-icon { width:48px;height:48px;display:grid;place-items:center;border:1px solid #f0dce5;border-radius:14px;background:linear-gradient(145deg,#fff,#fff2f8);font-size:25px; }
+.quick-link:hover .quick-icon { border-color:#ff3f91; transform:translateY(-2px); }
+.category-panel { background:#fff; border:1px solid #f0e9ed; }
+.category-panel .section-title { padding:16px 18px; margin:0; border-bottom:1px solid #eee; font-size:17px; text-transform:uppercase; font-weight:500; color:#555; }
+.categories { grid-template-columns:repeat(6,minmax(0,1fr)); gap:0; }
+.category { border:0; border-right:1px solid #f1edf0; border-bottom:1px solid #f1edf0; border-radius:0; padding:18px 8px; min-height:125px; cursor:pointer; }
+.category-icon { width:58px;height:58px;display:grid;place-items:center;margin:0 auto 10px;border-radius:50%;background:#f7f7f7;font-size:32px; }
+.category b { font-size:12px; font-weight:500; }
+@media(max-width:850px){ .home-promo{grid-template-columns:1fr}.promo-side{grid-template-columns:1fr 1fr;grid-template-rows:1fr}.quick-links{grid-template-columns:repeat(3,1fr)}.categories{grid-template-columns:repeat(3,minmax(0,1fr))} }
+@media(max-width:520px){.home-promo{margin:12px 3% 0}.promo-main{padding:18px;min-height:180px}.promo-copy{max-width:72%}.promo-main p{font-size:12px}.promo-art{font-size:48px}.promo-mini{padding:12px}.promo-mini h3{font-size:15px}.promo-mini span{font-size:32px}.quick-links{margin:0 3%;padding:14px 4px}.quick-link{font-size:11px}.section{margin:20px 3%}.categories{grid-template-columns:repeat(3,minmax(0,1fr))}.category{padding:13px 4px;min-height:110px}.category-icon{width:48px;height:48px;font-size:27px}}
+
+/* =====================================================
+   SECTION
+===================================================== */
+
+.section {
+    margin: 30px 5%;
+}
+
+.section-title {
+    margin-bottom: 18px;
+}
+
+
+/* =====================================================
+   CATEGORY
+===================================================== */
+
+.categories {
+    display: grid;
+
+    grid-template-columns:
+        repeat(6, 1fr);
+
+    gap: 15px;
+}
+
+.category {
+    background: white;
+
+    border: 1px solid #ffdce9;
+
+    border-radius: 12px;
+
+    padding: 20px 10px;
+
+    text-align: center;
+
+    transition: .2s;
+}
+
+.category:hover {
+    transform: translateY(-4px);
+
+    box-shadow:
+        0 8px 20px
+        rgba(255, 63, 145, .12);
+}
+
+.category-icon {
+    font-size: 35px;
+    margin-bottom: 8px;
+}
+
+
+/* =====================================================
+   PRODUCTS
+===================================================== */
+
+.products {
+    display: grid;
+
+    grid-template-columns:
+        repeat(5, 1fr);
+
+    gap: 18px;
+}
+
+.product {
+    background: white;
+
+    border-radius: 12px;
+
+    overflow: hidden;
+
+    border: 1px solid #ffe0eb;
+
+    transition: .2s;
+
+    position: relative;
+}
+
+.product:hover {
+    transform: translateY(-5px);
+
+    box-shadow:
+        0 8px 20px
+        rgba(255, 63, 145, .15);
+}
+
+.product-image {
+    height: 170px;
+    overflow: hidden;
+
+    background: #ffeaf3;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 75px;
+}
+
+.product-image img, .detail-image img, .cart-icon img, .order-product-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+}
+
+.product-image img { padding: 8px; }
+.detail-image img { max-height: 350px; padding: 16px; }
+.cart-icon img { padding: 4px; }
+.order-product-icon img { padding: 3px; }
+
+.product-info {
+    padding: 14px;
+}
+
+.product-name {
+    min-height: 40px;
+    margin-bottom: 8px;
+}
+
+.price {
+    color: #ff3f91;
+
+    font-size: 18px;
+    font-weight: bold;
+
+    margin-bottom: 7px;
+}
+
+.rating {
+    font-size: 12px;
+    color: #777;
+
+    margin-bottom: 12px;
+}
+
+.product-buttons {
+    display: flex;
+    gap: 6px;
+}
+
+.product-buttons button {
+    flex: 1;
+
+    padding: 9px;
+
+    border-radius: 7px;
+
+    border: 1px solid #ff3f91;
+
+    background: white;
+
+    color: #ff3f91;
+
+    font-weight: bold;
+}
+
+.product-buttons button:hover {
+    background: #ff3f91;
+    color: white;
+}
+
+.wishlist-button {
+    position: absolute;
+
+    top: 10px;
+    right: 10px;
+
+    width: 35px;
+    height: 35px;
+
+    border-radius: 50%;
+
+    border: none;
+
+    background: white;
+
+    font-size: 19px;
+
+    box-shadow: 0 2px 8px rgba(0,0,0,.12);
+}
+
+
+/* =====================================================
+   MODAL
+===================================================== */
+
+.modal {
+    position: fixed;
+
+    inset: 0;
+
+    background: rgba(0,0,0,.45);
+
+    z-index: 3000;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    padding: 20px;
+}
+
+.modal-box {
+    background: white;
+
+    width: 430px;
+    max-width: 100%;
+
+    padding: 28px;
+
+    border-radius: 15px;
+
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+.modal-box h2 {
+    color: #ff3f91;
+    margin-bottom: 20px;
+}
+
+.close {
+    float: right;
+
+    border: none;
+    background: none;
+
+    font-size: 22px;
+}
+
+
+/* =====================================================
+   FORM
+===================================================== */
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+
+    margin-bottom: 6px;
+
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+    width: 100%;
+
+    padding: 11px;
+
+    border: 1px solid #ddd;
+
+    border-radius: 7px;
+
+    outline: none;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: #ff3f91;
+}
+
+.primary-button {
+    width: 100%;
+
+    padding: 12px;
+
+    border: none;
+
+    border-radius: 8px;
+
+    background: linear-gradient(
+        135deg,
+        #ff3f91,
+        #ff75b2
+    );
+
+    color: white;
+
+    font-weight: bold;
+}
+
+.secondary-button {
+    width: 100%;
+
+    padding: 11px;
+
+    border: 1px solid #ff3f91;
+
+    border-radius: 8px;
+
+    background: white;
+
+    color: #ff3f91;
+
+    font-weight: bold;
+
+    margin-top: 8px;
+}
+
+
+/* =====================================================
+   AUTH
+===================================================== */
+
+.auth-page {
+    min-height: 100vh;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ff3f91,
+            #ff9ac7
+        );
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
+}
+
+.auth-box {
+    width: 420px;
+    max-width: 100%;
+
+    background: white;
+
+    border-radius: 18px;
+
+    padding: 35px;
+
+    box-shadow:
+        0 15px 40px
+        rgba(0,0,0,.15);
+}
+
+.auth-logo {
+    text-align: center;
+
+    font-size: 30px;
+    font-weight: bold;
+
+    color: #ff3f91;
+
+    margin-bottom: 10px;
+}
+
+.auth-description {
+    text-align: center;
+
+    color: #777;
+
+    margin-bottom: 25px;
+}
+
+.auth-switch {
+    text-align: center;
+
+    margin-top: 15px;
+
+    font-size: 13px;
+}
+
+.auth-switch span {
+    color: #ff3f91;
+
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+
+/* =====================================================
+   DETAIL PRODUCT
+===================================================== */
+
+.detail {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 30px;
+}
+
+.detail-image {
+    min-height: 350px;
+
+    background: #ffeaf3;
+
+    border-radius: 15px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    font-size: 150px;
+    overflow: hidden;
+}
+
+.detail-info h1 {
+    margin-bottom: 12px;
+}
+
+.detail-price {
+    font-size: 28px;
+
+    font-weight: bold;
+
+    color: #ff3f91;
+
+    margin: 15px 0;
+}
+
+.detail-description {
+    line-height: 1.7;
+
+    color: #666;
+
+    margin-bottom: 20px;
+}
+
+.quantity-box {
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    margin-bottom: 18px;
+}
+
+.quantity-box button {
+    width: 35px;
+    height: 35px;
+
+    border: 1px solid #ff3f91;
+
+    background: white;
+
+    color: #ff3f91;
+
+    border-radius: 6px;
+}
+
+.quantity-number {
+    font-weight: bold;
+}
+
+
+/* =====================================================
+   CART
+===================================================== */
+
+.cart-item {
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    padding: 15px 0;
+
+    border-bottom: 1px solid #eee;
+}
+
+.cart-icon {
+    width: 70px;
+    height: 70px;
+
+    border-radius: 8px;
+
+    background: #ffeaf3;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    font-size: 35px;
+}
+
+.cart-info {
+    flex: 1;
+}
+
+.cart-info strong {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.cart-price {
+    color: #ff3f91;
+    font-weight: bold;
+}
+
+.quantity-control {
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+}
+
+.quantity-control button {
+    width: 30px;
+    height: 30px;
+
+    border: 1px solid #ff3f91;
+
+    background: white;
+
+    color: #ff3f91;
+
+    border-radius: 5px;
+}
+
+.remove-button {
+    border: none;
+
+    background: none;
+
+    font-size: 18px;
+}
+
+
+/* =====================================================
+   CHECKOUT
+===================================================== */
+
+.checkout-grid {
+    display: grid;
+
+    grid-template-columns: 2fr 1fr;
+
+    gap: 25px;
+}
+
+.card {
+    background: white;
+
+    padding: 22px;
+
+    border-radius: 12px;
+
+    border: 1px solid #ffe0eb;
+
+    margin-bottom: 20px;
+}
+
+.card h3 {
+    margin-bottom: 15px;
+}
+
+.address {
+    background: #fff2f7;
+
+    border-left: 4px solid #ff3f91;
+
+    padding: 15px;
+
+    border-radius: 7px;
+
+    line-height: 1.6;
+}
+
+.summary-row {
+    display: flex;
+
+    justify-content: space-between;
+
+    margin-bottom: 13px;
+}
+
+.summary-total {
+    border-top: 1px solid #ddd;
+
+    padding-top: 15px;
+
+    font-size: 20px;
+
+    font-weight: bold;
+
+    color: #ff3f91;
+}
+
+.payment {
+    padding: 12px;
+
+    border: 1px solid #ddd;
+
+    border-radius: 7px;
+
+    margin-bottom: 10px;
+}
+
+.payment:hover {
+    border-color: #ff3f91;
+
+    background: #fff7fa;
+}
+
+
+/* =====================================================
+   PROFILE
+===================================================== */
+
+.profile {
+    text-align: center;
+}
+
+.avatar {
+    width: 75px;
+    height: 75px;
+
+    border-radius: 50%;
+
+    margin: auto;
+
+    background: #ff3f91;
+
+    color: white;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    font-size: 35px;
+
+    margin-bottom: 12px;
+}
+
+.profile-name {
+    font-size: 20px;
+
+    font-weight: bold;
+
+    margin-bottom: 5px;
+}
+
+.profile-email {
+    color: #777;
+
+    margin-bottom: 20px;
+}
+
+.menu-list {
+    text-align: left;
+}
+
+.menu-item {
+    padding: 13px;
+
+    border-radius: 8px;
+
+    cursor: pointer;
+
+    margin-bottom: 5px;
+}
+
+.menu-item:hover {
+    background: #fff0f6;
+
+    color: #ff3f91;
+}
+
+
+/* =====================================================
+   ORDER HISTORY
+===================================================== */
+
+.order {
+    background: white;
+
+    padding: 20px;
+
+    border-radius: 12px;
+
+    border: 1px solid #ffe0eb;
+
+    margin-bottom: 15px;
+}
+
+.order-header {
+    display: flex;
+
+    justify-content: space-between;
+
+    margin-bottom: 15px;
+}
+
+.order-status {
+    color: #ff3f91;
+
+    font-weight: bold;
+}
+
+.order-product {
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    padding: 10px 0;
+
+    border-bottom: 1px solid #eee;
+}
+
+.order-product-icon {
+    width: 50px;
+    height: 50px;
+
+    background: #ffeaf3;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 7px;
+
+    font-size: 25px;
+}
+
+.order-total {
+    text-align: right;
+
+    margin-top: 12px;
+
+    color: #ff3f91;
+
+    font-weight: bold;
+}
+
+
+/* =====================================================
+   EMPTY
+===================================================== */
+
+.empty {
+    background: white;
+
+    padding: 50px 20px;
+
+    border-radius: 12px;
+
+    text-align: center;
+
+    color: #777;
+}
+
+.empty-icon {
+    font-size: 60px;
+
+    margin-bottom: 15px;
+}
+
+
+/* =====================================================
+   FOOTER — gaya marketplace Rina Store
+===================================================== */
+footer { margin-top:50px; background:#fff; color:#444; border-top:1px solid #f0dce5; font-size:13px; text-align:left; }
+.rs-footer-main { max-width:1250px; margin:0 auto; padding:34px 28px 28px; display:grid; grid-template-columns:1.05fr 1fr 1.05fr 1fr 1fr; gap:28px; }
+.rs-footer-column h4 { color:#333; font-size:13px; font-weight:800; text-transform:uppercase; margin:0 0 17px; letter-spacing:.25px; }
+.rs-footer-column a { display:block; color:#666; text-decoration:none; margin:0 0 11px; line-height:1.35; cursor:pointer; }
+.rs-footer-column a:hover { color:#ee4d9b; }
+.rs-footer-brand { color:#ee4d9b; font-size:25px; font-weight:900; margin-bottom:10px; letter-spacing:-.7px; }
+.rs-footer-desc { color:#777; line-height:1.65; margin:0 0 17px; }
+.rs-footer-pills { display:flex; flex-wrap:wrap; gap:7px; align-items:center; }
+.rs-footer-pill { min-width:54px; padding:7px 8px; min-height:25px; border:1px solid #eee; border-radius:4px; background:#fff; color:#555; font-size:10px; font-weight:800; text-align:center; box-shadow:0 1px 2px #00000008; }
+.rs-footer-pill.pink { color:#e83e8c; } .rs-footer-pill.blue { color:#2876c7; } .rs-footer-pill.green { color:#299b64; }
+.rs-footer-social { display:flex; gap:8px; flex-wrap:wrap; }
+.rs-footer-social a { display:inline-flex; align-items:center; justify-content:center; width:28px; height:28px; margin:0; border-radius:50%; background:#f8eaf1; color:#d83e87; font-weight:800; }
+.rs-footer-app { display:flex; align-items:flex-start; gap:10px; }
+.rs-footer-qr { flex:0 0 76px; width:76px; height:76px; border:6px solid #fff; outline:1px solid #ddd; background:repeating-conic-gradient(#222 0% 25%,#fff 0% 50%) 0 0/10px 10px; position:relative; }
+.rs-footer-qr:before,.rs-footer-qr:after { content:""; position:absolute; width:18px; height:18px; background:#fff; border:5px solid #222; box-shadow:inset 0 0 0 4px #fff,inset 0 0 0 7px #222; }
+.rs-footer-qr:before { left:1px; top:1px; } .rs-footer-qr:after { right:1px; bottom:1px; }
+.rs-footer-store-badges { display:grid; gap:6px; }
+.rs-footer-store-badge { border:1px solid #ddd; border-radius:4px; padding:6px 8px; color:#555; font-size:10px; line-height:1.2; min-width:86px; }
+.rs-footer-bottom { border-top:1px solid #eee; background:#fafafa; padding:18px 28px; color:#888; }
+.rs-footer-bottom-inner { max-width:1250px; margin:0 auto; display:flex; justify-content:space-between; align-items:center; gap:14px; flex-wrap:wrap; }
+.rs-footer-bottom strong { color:#ee4d9b; } .rs-footer-bottom-links { display:flex; flex-wrap:wrap; gap:10px; }
+.rs-footer-bottom-links span { color:#777; }
+@media(max-width:1050px) { .rs-footer-main { grid-template-columns:repeat(3,minmax(0,1fr)); } }
+@media(max-width:700px) { .rs-footer-main { grid-template-columns:repeat(2,minmax(0,1fr)); padding:28px 18px; gap:25px 18px; } .rs-footer-column h4 { font-size:12px; } .rs-footer-app { flex-wrap:wrap; } .rs-footer-bottom { padding:16px 18px; } }
+@media(max-width:420px) { .rs-footer-main { grid-template-columns:1fr 1fr; } .rs-footer-brand { font-size:21px; } }
+
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media(max-width: 1000px) {
+
+    .products {
+        grid-template-columns:
+            repeat(3, 1fr);
+    }
+
+    .categories {
+        grid-template-columns:
+            repeat(3, 1fr);
+    }
+
+}
+
+@media(max-width: 700px) {
+
+    .navbar {
+        flex-wrap: wrap;
+    }
+
+    .search {
+        order: 5;
+        flex-basis: 100%;
+    }
+
+    .hero {
+        padding: 30px;
+    }
+
+    .hero h1 {
+        font-size: 27px;
+    }
+
+    .hero-icon {
+        font-size: 60px;
+    }
+
+    .products {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+    .categories {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+    .detail,
+    .checkout-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .detail-image {
+        min-height: 250px;
+        font-size: 100px;
+    }
+
+}
+
+@media(max-width: 450px) {
+
+    .products {
+        grid-template-columns: 1fr;
+    }
+
+    .hero {
+        flex-direction: column;
+
+        gap: 20px;
+
+        text-align: center;
+    }
+
+    .cart-item {
+        flex-wrap: wrap;
+    }
+
+}
+
+
+/* Rotating promo + merchant + tracking enhancements */
+.promo-main{transition:background .5s ease}.promo-dots{position:absolute;bottom:10px;left:28px;display:flex;gap:6px;z-index:2}.promo-dots button{width:8px;height:8px;border:0;border-radius:50%;padding:0;background:#ffffff88}.promo-dots button.active{width:22px;border-radius:8px;background:#fff}
+.category-icon img{width:100%;height:100%;object-fit:contain;padding:5px;border-radius:50%}.detail-extra{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0}.detail-extra span{background:#fff2f8;border-radius:20px;padding:7px 10px;font-size:12px;color:#a72d65}.join-mitra-card{grid-column:span 2;background:linear-gradient(135deg,#fff4fa,#ffe4f1);border:1px solid #ffc4df!important;text-align:center}.join-mitra-card small{display:block;color:#a33b70;font-size:11px;margin-top:5px}.mitra-hero{display:flex;justify-content:space-between;align-items:center;gap:20px;padding:28px;border-radius:18px;background:linear-gradient(120deg,#ff3f91,#ff8eaf);color:white;margin-bottom:20px}.mitra-hero span{font-size:12px;letter-spacing:2px;font-weight:800}.mitra-hero h1{font-size:clamp(25px,4vw,38px);margin:10px 0}.mitra-hero p{max-width:620px}.mitra-hero-art{font-size:70px}.mitra-panel{background:white;border:1px solid #f4dce7;border-radius:16px;padding:24px;margin:18px 0;box-shadow:0 8px 25px #8d34510a}.mitra-panel form{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:18px}.mitra-panel label{display:flex;flex-direction:column;gap:7px;font-weight:600;font-size:13px}.mitra-panel input,.mitra-panel select{padding:12px;border:1px solid #e6d7df;border-radius:9px;background:white;font:inherit}.mitra-panel form button{grid-column:1/-1}.muted{color:#777}.mitra-types{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:18px}.mitra-types button{display:flex;flex-direction:column;gap:8px;align-items:flex-start;text-align:left;border:1px solid #f1d9e5;border-radius:12px;background:#fff9fc;padding:16px;font-size:25px;color:#d82f7b}.mitra-types small{font-size:12px;color:#777}.tracking-panel{margin:14px 0;padding:14px;border-radius:10px;background:#fff8fb;border:1px solid #f5dbe7}.tracking-steps{display:flex;gap:8px;margin:12px 0}.tracking-step{flex:1;text-align:center;font-size:11px;color:#999;border-top:4px solid #e8dfe4;padding-top:8px}.tracking-step.done{border-color:#ff3f91;color:#b72b69;font-weight:700}
+@media(max-width:600px){.mitra-panel form{grid-template-columns:1fr}.mitra-types{grid-template-columns:repeat(2,minmax(0,1fr))}.mitra-hero-art{font-size:44px}.join-mitra-card{grid-column:span 1}.promo-dots{left:18px}}
+
+
+/* RINA STORE UI POLISH: cleaner category cards and spacing */
+.categories{display:grid!important;grid-template-columns:repeat(6,minmax(0,1fr));gap:12px!important;padding:16px!important;background:#fff!important;border:1px solid #f5e1eb;border-radius:16px;}
+.category{min-width:0;min-height:132px!important;padding:16px 8px!important;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;background:#fff!important;border:1px solid #f3e2eb!important;border-radius:14px!important;box-shadow:0 3px 12px rgba(150,55,100,.045);transition:transform .18s,box-shadow .18s,border-color .18s;}
+.category:hover{transform:translateY(-3px);border-color:#ff8fbe!important;box-shadow:0 8px 20px rgba(230,70,140,.12)}
+.category-icon{width:54px!important;height:54px!important;margin:0!important;flex:0 0 54px;border-radius:16px!important;background:linear-gradient(145deg,#fff0f7,#ffe1ef)!important;color:#d63384;font-size:29px!important;overflow:hidden;display:grid;place-items:center;}
+.category-icon img{width:100%;height:100%;object-fit:contain;padding:7px;box-sizing:border-box;mix-blend-mode:multiply;}
+.category b{font-size:12px!important;line-height:1.35;font-weight:600!important;color:#46333d;max-width:100%;overflow-wrap:anywhere;}
+.join-mitra-card{grid-column:span 2;min-height:132px!important;background:linear-gradient(135deg,#fff5fa,#ffe7f2)!important;border:1px solid #ffc4df!important;}
+.join-mitra-card .category-icon{background:#fff!important;border-radius:50%!important;}
+.mitra-certificate{position:relative;overflow:hidden;text-align:center;padding:28px!important;border:3px double #e76aa4!important;background:linear-gradient(145deg,#fffafd,#fff0f7)!important;}
+.mitra-certificate:before{content:'✦  RINA STORE PARTNER  ✦';display:block;color:#bf3979;font-size:11px;font-weight:800;letter-spacing:3px;margin-bottom:15px;}
+.mitra-certificate .certificate-title{font-family:Georgia,serif;font-size:clamp(24px,4vw,36px);color:#a72f6b;margin:8px 0 12px;}
+.mitra-certificate .certificate-seal{width:64px;height:64px;border:2px solid #e76aa4;border-radius:50%;display:grid;place-items:center;margin:16px auto;color:#b73573;font-size:30px;background:#fff;}
+.mitra-certificate .certificate-meta{font-size:12px;color:#8c6075;line-height:1.8;}
+.mitra-certificate .certificate-number{display:inline-block;background:#fff;border:1px solid #f0bdd5;border-radius:999px;padding:6px 12px;color:#a72f6b;font-weight:700;font-size:12px;}
+@media(max-width:850px){.categories{grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:9px!important;padding:12px!important}.category{min-height:118px!important}}
+@media(max-width:520px){.categories{grid-template-columns:repeat(2,minmax(0,1fr))!important}.category{min-height:110px!important}.mitra-panel{padding:16px!important}.mitra-certificate{padding:18px!important}}
+@media print{body *{visibility:hidden!important}.mitra-certificate,.mitra-certificate *{visibility:visible!important}.mitra-certificate{position:absolute;left:0;top:0;width:100%;box-shadow:none!important;}}
+</style>
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     LOGIN PAGE
+===================================================== -->
+
+<div id="loginPage" class="auth-page">
+
+    <div class="auth-box">
+
+        <div class="auth-logo">
+            🌸 Rina Store
+        </div>
+
+        <p class="auth-description">
+            Marketplace kebutuhan edukasi
+        </p>
+
+        <form onsubmit="login(event)">
+
+            <div class="form-group">
+
+                <label>Email</label>
+
+                <input
+                    type="email"
+                    id="loginEmail"
+                    placeholder="Masukkan email"
+                    required
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>Password</label>
+
+                <input
+                    type="password"
+                    id="loginPassword"
+                    placeholder="Masukkan password"
+                    required
+                >
+
+            </div>
+
+
+            <button class="primary-button">
+                Masuk
+            </button>
+
+        </form>
+
+
+        <div class="auth-switch">
+
+            Belum punya akun?
+
+            <span onclick="showRegister()">
+                Daftar sekarang
+            </span>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     REGISTER PAGE
+===================================================== -->
+
+<div id="registerPage" class="auth-page hidden">
+
+    <div class="auth-box">
+
+        <div class="auth-logo">
+            🌸 Rina Store
+        </div>
+
+        <p class="auth-description">
+            Buat akun baru
+        </p>
+
+
+        <form onsubmit="register(event)">
+
+            <div class="form-group">
+
+                <label>Nama Lengkap</label>
+
+                <input
+                    type="text"
+                    id="registerName"
+                    placeholder="Nama kamu"
+                    required
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>Email</label>
+
+                <input
+                    type="email"
+                    id="registerEmail"
+                    placeholder="email@example.com"
+                    required
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>Password</label>
+
+                <input
+                    type="password"
+                    id="registerPassword"
+                    placeholder="Minimal 6 karakter"
+                    minlength="6"
+                    required
+                >
+
+            </div>
+
+
+            <button class="primary-button">
+                Daftar
+            </button>
+
+        </form>
+
+
+        <div class="auth-switch">
+
+            Sudah punya akun?
+
+            <span onclick="showLogin()">
+                Login
+            </span>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     MAIN APPLICATION
+===================================================== -->
+
+<div id="app" class="hidden">
+
+
+<!-- NAVBAR -->
+
+<nav class="navbar">
+
+    <div class="logo" role="button" tabindex="0" title="Kembali ke Beranda" onclick="openHome()" onkeydown="if(event.key==='Enter'||event.key===' ')openHome()">
+        <span class="logo-mark">R</span> Rina<span>Store</span>
+    </div>
+
+
+    <div class="search">
+
+        <input
+            type="text"
+            id="searchInput"
+            placeholder="Cari buku, ATK, seragam..."
+            oninput="searchProduct()"
+        >
+
+        <button>
+            🔍
+        </button>
+
+    </div>
+
+
+    <button
+        class="nav-button"
+        onclick="openWishlist()">
+
+        ❤️ Wishlist
+
+    </button>
+
+
+    <button
+        class="nav-button"
+        onclick="openOrders()">
+
+        📦 Pesanan
+
+    </button>
+
+
+    <button
+        class="nav-button"
+        onclick="openProfile()">
+
+        👤 Profil
+
+    </button>
+
+
+    <button
+        class="nav-button cart-button"
+        onclick="openCart()">
+
+        🛒
+
+        <span
+            class="cart-count"
+            id="cartCount">
+
+            0
+
+        </span>
+
+    </button>
+
+</nav>
+
+
+<!-- =====================================================
+     HOME
+===================================================== -->
+
+<div id="homePage" class="page">
+
+    <!-- PROMO BANNER -->
+    <section class="home-promo" aria-label="Promosi Rina Store">
+        <div class="promo-main">
+            <div class="promo-copy">
+                <div class="promo-kicker" id="promoKicker">🌸 Rina Store • Pilihan Lokal</div>
+                <h2 id="promoTitle">Produk Lokal,<br>Belajar Makin Seru!</h2>
+                <p id="promoText">Temukan kebutuhan sekolah pilihan dengan harga bersahabat.</p>
+                <button onclick="scrollToProducts()">BELANJA SEKARANG →</button>
+            </div>
+            <div class="promo-art" id="promoArt" aria-hidden="true">🎒📚</div>
+            <div class="promo-dots" id="promoDots"><button class="active" onclick="setPromo(0)" aria-label="Promo 1"></button><button onclick="setPromo(1)" aria-label="Promo 2"></button><button onclick="setPromo(2)" aria-label="Promo 3"></button></div>
+        </div>
+        <div class="promo-side">
+            <div class="promo-mini orange"><div><h3>Promo Anak Sekolah</h3><p>Hemat untuk kebutuhan harian</p></div><span>✏️</span></div>
+            <div class="promo-mini purple"><div><h3>Paket Belajar</h3><p>Mulai semester dengan semangat!</p></div><span>📚</span></div>
+        </div>
+    </section>
+
+    <!-- SHORTCUTS -->
+    <section class="quick-links" aria-label="Menu cepat">
+        <button class="quick-link" onclick="filterCategory('Semua')"><span class="quick-icon">💗</span><span>Rina Pilih Lokal</span></button>
+        <button class="quick-link" onclick="filterCategory('Semua')"><span class="quick-icon">🛍️</span><span>Rina Mall</span></button>
+        <button class="quick-link" onclick="filterCategory('ATK')"><span class="quick-icon">✏️</span><span>Alat Tulis</span></button>
+        <button class="quick-link" onclick="scrollToProducts()"><span class="quick-icon">⚡</span><span>Promo Hari Ini</span></button>
+        <button class="quick-link" onclick="filterCategory('Buku')"><span class="quick-icon">📚</span><span>Buku Pilihan</span></button>
+        <button class="quick-link" onclick="openOrders()"><span class="quick-icon">📦</span><span>Pesanan Saya</span></button>
+    </section>
+
+    <!-- CATEGORY -->
+    <section class="section">
+        <div class="category-panel">
+            <h2 class="section-title">Kategori</h2>
+            <div class="categories">
+                <div class="category" onclick="filterCategory('Semua')"><div class="category-icon">🛍️</div><b>Semua Produk</b></div>
+                <div class="category" onclick="filterCategory('Buku')"><div class="category-icon">📚</div><b>Buku & Modul</b></div>
+                <div class="category" onclick="filterCategory('ATK')"><div class="category-icon">✏️</div><b>Alat Tulis</b></div>
+                <div class="category" onclick="filterCategory('Seragam')"><div class="category-icon">👔</div><b>Seragam Sekolah</b></div>
+                <div class="category" onclick="filterCategory('Tas')"><div class="category-icon">🎒</div><b>Tas Sekolah</b></div>
+                <div class="category" onclick="filterCategory('Alat Belajar')"><div class="category-icon">🧮</div><b>Alat Belajar</b></div>
+                <div class="category" onclick="filterCategory('ATK')"><div class="category-icon">🖊️</div><b>Pulpen & Pensil</b></div>
+                <div class="category" onclick="filterCategory('Buku')"><div class="category-icon">📒</div><b>Buku Catatan</b></div>
+                <div class="category" onclick="filterCategory('Seragam')"><div class="category-icon">👟</div><b>Aksesori Sekolah</b></div>
+                <div class="category" onclick="filterCategory('Alat Belajar')"><div class="category-icon">🔬</div><b>Perlengkapan Sains</b></div>
+                <div class="category" onclick="filterCategory('Tas')"><div class="category-icon">🧃</div><b>Bekal & Minum</b></div>
+                <div class="category" onclick="filterCategory('Semua')"><div class="category-icon">✨</div><b>Lainnya</b></div>
+            </div>
+        </div>
+    </section>
+
+    <div class="category join-mitra-card" onclick="openMitra()" role="button" tabindex="0" onkeydown="if(event.key==='Enter')openMitra()"><div class="category-icon"><span>🤝</span></div><b>Join Mitra</b><small>Mulai jualan di Rina Store</small></div>
+
+    <!-- PRODUCTS -->
+
+    <section
+        class="section"
+        id="productsSection">
+
+        <h2 class="section-title">
+            Produk Pilihan 🔥
+        </h2>
+
+        <div
+            class="products"
+            id="productList">
+
+        </div>
+
+    </section>
+
+
+    <footer>
+      <div class="rs-footer-main">
+        <div class="rs-footer-column">
+          <div class="rs-footer-brand">🌸 Rina Store</div>
+          <p class="rs-footer-desc">Temukan kebutuhan sekolah dan belajar favoritmu dengan mudah. Belanja perlengkapan edukasi jadi lebih praktis, seru, dan hemat!</p>
+          <div class="rs-footer-pills"><span class="rs-footer-pill pink">#BelajarMakinSeru</span><span class="rs-footer-pill">Pelajar</span></div>
+        </div>
+        <div class="rs-footer-column">
+          <h4>Layanan Pelanggan</h4><a href="#" onclick="return false">Pusat Bantuan</a><a href="#" onclick="return false">Cara Pembelian</a><a href="#" onclick="return false">Metode Pembayaran</a><a href="#" onclick="return false">Lacak Pesanan</a><a href="#" onclick="return false">Pengiriman</a><a href="#" onclick="return false">Pengembalian Barang</a><a href="#" onclick="return false">Hubungi Kami</a>
+        </div>
+        <div class="rs-footer-column">
+          <h4>Jelajahi Rina Store</h4><a href="#" onclick="return false">Tentang Kami</a><a href="#" onclick="return false">Kategori Produk</a><a href="#" onclick="return false">Produk Pilihan</a><a href="#" onclick="return false">Promo & Diskon</a><a href="#" onclick="return false">Join Mitra</a><a href="#" onclick="return false">Kebijakan Privasi</a><a href="#" onclick="return false">Syarat & Ketentuan</a>
+        </div>
+        <div class="rs-footer-column">
+          <h4>Metode Pembayaran</h4><div class="rs-footer-pills" style="margin-bottom:20px"><span class="rs-footer-pill blue">TRANSFER</span><span class="rs-footer-pill">BANK</span><span class="rs-footer-pill green">E-WALLET</span><span class="rs-footer-pill pink">QRIS*</span><span class="rs-footer-pill">COD*</span></div>
+          <h4>Pengiriman</h4><div class="rs-footer-pills"><span class="rs-footer-pill">JNE*</span><span class="rs-footer-pill">J&T*</span><span class="rs-footer-pill">SiCepat*</span><span class="rs-footer-pill">POS*</span><span class="rs-footer-pill">Reguler*</span></div><p class="rs-footer-desc" style="font-size:10px;margin-top:9px;margin-bottom:0">*Ilustrasi pilihan layanan untuk demo website.</p>
+        </div>
+        <div class="rs-footer-column">
+          <h4>Ikuti Kami</h4><div class="rs-footer-social" style="margin-bottom:23px"><a href="#" aria-label="Facebook" onclick="return false">f</a><a href="#" aria-label="Instagram" onclick="return false">◎</a><a href="#" aria-label="TikTok" onclick="return false">♪</a></div>
+          <h4>Download Aplikasi</h4><div class="rs-footer-app"><div class="rs-footer-qr" aria-label="Ilustrasi QR demo"></div><div class="rs-footer-store-badges"><div class="rs-footer-store-badge">▶ Google Play<br><strong>Segera hadir</strong></div><div class="rs-footer-store-badge">▣ App Store<br><strong>Segera hadir</strong></div></div></div><p class="rs-footer-desc" style="font-size:10px;margin-top:10px;margin-bottom:0">QR dan tombol aplikasi hanya ilustrasi.</p>
+        </div>
+      </div>
+      <div class="rs-footer-bottom"><div class="rs-footer-bottom-inner"><div>© 2026 <strong>Rina Store</strong>. Hak Cipta Dilindungi.</div><div class="rs-footer-bottom-links"><span>Indonesia</span><span>•</span><span>Belanja Lebih Mudah</span><span>•</span><span>Belajar Lebih Seru</span></div></div></div>
+    </footer>
+
+</div>
+
+
+<!-- JOIN MITRA PAGE -->
+<div id="mitraPage" class="page section hidden">
+  <button class="secondary-button" style="width:auto;margin-bottom:16px" onclick="openHome()">← Kembali ke Beranda</button>
+  <div class="mitra-hero"><div><span>🤝 RINA STORE PARTNER</span><h1>Mulai usaha bersama Rina Store!</h1><p>Daftar sebagai mitra, lengkapi profil tokomu, lalu pilih jenis produk yang ingin kamu jual.</p></div><div class="mitra-hero-art">🛍️✨</div></div>
+  <div id="mitraRegisterPanel" class="mitra-panel"><h2>📝 Registrasi Mitra</h2><p class="muted">Isi data berikut untuk mengajukan pendaftaran toko.</p>
+    <form id="mitraForm" onsubmit="submitMitra(event)">
+      <label>Nama lengkap<input id="mitraName" required placeholder="Nama pemilik toko"></label>
+      <label>Email aktif<input id="mitraEmail" type="email" required placeholder="nama@email.com"></label>
+      <label>Nomor WhatsApp<input id="mitraPhone" type="tel" required placeholder="08xxxxxxxxxx"></label>
+      <label>Nama toko yang diinginkan<input id="mitraShop" required placeholder="Contoh: Toko Ceria"></label>
+      <label>Kata sandi untuk demo<input id="mitraPassword" type="password" minlength="6" required placeholder="Minimal 6 karakter"></label>
+      <label>Jenis usaha awal<select id="mitraInterest" required><option value="">Pilih jenis usaha</option><option>Alat tulis & perlengkapan sekolah</option><option>Buku & modul belajar</option><option>Fashion & seragam</option><option>Tas & aksesori</option><option>Produk buatan sendiri</option><option>Lainnya</option></select></label>
+      <button class="primary-button" type="submit">Kirim Pendaftaran Mitra</button>
+    </form>
+  </div>
+  <div id="mitraStatusPanel" class="mitra-panel hidden"></div>
+  <div id="mitraTypePanel" class="mitra-panel hidden"><h2>🎉 Pendaftaran disetujui (mode demo)</h2><p>Pilih kategori jualan yang ingin kamu kelola. Pilihan bisa diubah nanti.</p><div class="mitra-types"><button onclick="chooseMitraType('Alat Tulis & Perlengkapan Sekolah')">✏️<b>Alat Tulis</b><small>ATK, pulpen, planner</small></button><button onclick="chooseMitraType('Buku & Modul')">📚<b>Buku & Modul</b><small>Buku catatan dan belajar</small></button><button onclick="chooseMitraType('Fashion & Seragam')">👕<b>Fashion & Seragam</b><small>Seragam dan pakaian</small></button><button onclick="chooseMitraType('Tas & Aksesori')">🎒<b>Tas & Aksesori</b><small>Tas dan aksesori sekolah</small></button><button onclick="chooseMitraType('Produk Buatan Sendiri')">🎨<b>Produk Sendiri</b><small>Karya atau produk homemade</small></button><button onclick="chooseMitraType('Produk Lainnya')">✨<b>Produk Lainnya</b><small>Kategori lainnya</small></button></div><div id="mitraSelected" class="hidden"></div></div>
+</div>
+
+<!-- =====================================================
+     DETAIL PRODUCT PAGE
+===================================================== -->
+
+<div
+    id="detailPage"
+    class="page section hidden">
+
+    <button
+        class="secondary-button"
+        style="width:auto;padding:10px 18px;margin-bottom:20px;"
+        onclick="showHome()">
+
+        ← Kembali
+
+    </button>
+
+
+    <div
+        class="detail"
+        id="detailContent">
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     WISHLIST PAGE
+===================================================== -->
+
+<div
+    id="wishlistPage"
+    class="page section hidden">
+
+    <h2 class="section-title">
+        ❤️ Wishlist Saya
+    </h2>
+
+    <div
+        class="products"
+        id="wishlistList">
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     ORDER PAGE
+===================================================== -->
+
+<div
+    id="ordersPage"
+    class="page section hidden">
+
+    <h2 class="section-title">
+        📦 Riwayat Pesanan
+    </h2>
+
+    <div id="ordersList">
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     PROFILE PAGE
+===================================================== -->
+
+<div
+    id="profilePage"
+    class="page section hidden">
+
+    <div class="card profile">
+
+        <div class="avatar">
+            👩🏻‍🎓
+        </div>
+
+        <div
+            class="profile-name"
+            id="profileName">
+
+            Rina
+
+        </div>
+
+        <div
+            class="profile-email"
+            id="profileEmail">
+
+            email@example.com
+
+        </div>
+
+
+        <div class="menu-list">
+
+            <div
+                class="menu-item"
+                onclick="openOrders()">
+
+                📦 Riwayat Pesanan
+
+            </div>
+
+            <div
+                class="menu-item"
+                onclick="openWishlist()">
+
+                ❤️ Wishlist
+
+            </div>
+
+            <div
+                class="menu-item"
+                onclick="logout()">
+
+                🚪 Keluar
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+</div>
+
+
+<!-- =====================================================
+     CART MODAL
+===================================================== -->
+
+<div
+    id="cartModal"
+    class="modal hidden">
+
+    <div class="modal-box">
+
+        <button
+            class="close"
+            onclick="closeModal('cartModal')">
+
+            ✕
+
+        </button>
+
+        <h2>
+            🛒 Keranjang Saya
+        </h2>
+
+        <div id="cartList">
+
+        </div>
+
+        <div id="cartSummary">
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     CHECKOUT MODAL
+===================================================== -->
+
+<div
+    id="checkoutModal"
+    class="modal hidden">
+
+    <div class="modal-box">
+
+        <button
+            class="close"
+            onclick="closeModal('checkoutModal')">
+
+            ✕
+
+        </button>
+
+        <h2>
+            💳 Checkout
+        </h2>
+
+
+        <div class="form-group">
+
+            <label>
+                Nama Penerima
+            </label>
+
+            <input
+                type="text"
+                id="checkoutName"
+                required
+            >
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label>
+                Alamat Pengiriman
+            </label>
+
+            <textarea
+                id="checkoutAddress"
+                rows="3"
+                placeholder="Masukkan alamat lengkap"
+                required></textarea>
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label>
+                Metode Pembayaran
+            </label>
+
+            <select id="paymentMethod">
+
+                <option>
+                    Transfer Bank
+                </option>
+
+                <option>
+                    E-Wallet
+                </option>
+
+                <option>
+                    COD
+                </option>
+
+            </select>
+
+        </div>
+
+
+        <div id="checkoutSummary">
+
+        </div>
+
+
+        <button
+            class="primary-button"
+            onclick="placeOrder()">
+
+            Buat Pesanan
+
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     SCRIPT
+===================================================== -->
+
+<script>
+
+/* =====================================================
+   DATA PRODUK
+===================================================== */
+
+const products = [
+
+    {
+        id: 1,
+        name: "Buku Tulis Premium",
+        category: "Buku",
+        price: 12000,
+        icon: "📓",
+        image: "images/buku-tulis-premium.jpeg",
+        rating: "4.9",
+        sold: "1.2rb",
+        description:
+            "Buku tulis berkualitas dengan kertas nyaman untuk mencatat pelajaran sekolah."
+    },
+
+    {
+        id: 2,
+        name: "Paket Alat Tulis Sekolah",
+        category: "ATK",
+        price: 25000,
+        icon: "✏️",
+        image: "images/paket-alat-tulis.jpeg",
+        rating: "4.8",
+        sold: "950",
+        description:
+            "Paket alat tulis lengkap untuk menemani aktivitas belajar sehari-hari."
+    },
+
+    {
+        id: 3,
+        name: "Seragam Putih Abu-Abu SMA",
+        category: "Seragam",
+        price: 95000,
+        icon: "👔",
+        image: "images/seragam-sma.jpeg",
+        rating: "4.9",
+        sold: "780",
+        description:
+            "Seragam putih abu-abu dengan bahan nyaman untuk pelajar SMA."
+    },
+
+    {
+        id: 4,
+        name: "Tas Sekolah Pink Minimalis",
+        category: "Tas",
+        price: 120000,
+        icon: "🎒",
+        image: "images/tas-sekolah-pink.jpeg",
+        rating: "4.9",
+        sold: "2.1rb",
+        description:
+            "Tas sekolah dengan desain minimalis dan ruang penyimpanan yang cukup."
+    },
+
+    {
+        id: 5,
+        name: "Kalkulator Scientific",
+        category: "Alat Belajar",
+        price: 75000,
+        icon: "🧮",
+        image: "images/kalkulator-scientific.jpeg",
+        rating: "4.8",
+        sold: "650",
+        description:
+            "Kalkulator scientific untuk membantu pembelajaran matematika dan sains."
+    },
+
+    {
+        id: 6,
+        name: "Buku Matematika SMA",
+        category: "Buku",
+        price: 45000,
+        icon: "📖",
+        image: "images/buku-matematika-sma.jpeg",
+        rating: "4.9",
+        sold: "1.5rb",
+        description:
+            "Buku latihan matematika SMA dengan materi dan latihan soal."
+    },
+
+    {
+        id: 7,
+        name: "Pulpen Gel Pink Isi 5",
+        category: "ATK",
+        price: 15000,
+        icon: "🖊️",
+        image: "images/pulpen-gel-pink.jpeg",
+        rating: "4.8",
+        sold: "2rb",
+        description:
+            "Pulpen gel dengan tinta halus dan nyaman digunakan untuk mencatat."
+    },
+
+    {
+        id: 8,
+        name: "Sepatu Sekolah Hitam",
+        category: "Seragam",
+        price: 150000,
+        icon: "👟",
+        image: "images/sepatu-sekolah-hitam.jpeg",
+        rating: "4.7",
+        sold: "530",
+        description:
+            "Sepatu sekolah hitam dengan desain sederhana dan nyaman."
+    },
+
+    {
+        id: 9,
+        name: "Tempat Pensil Lucu",
+        category: "ATK",
+        price: 22000,
+        icon: "🖍️",
+        image: "images/tempat-pensil-lucu.jpeg",
+        rating: "4.9",
+        sold: "1.8rb",
+        description:
+            "Tempat pensil praktis untuk menyimpan berbagai alat tulis."
+    },
+
+    {
+        id: 10,
+        name: "Planner Belajar Pelajar",
+        category: "Alat Belajar",
+        price: 30000,
+        icon: "📅",
+        image: "images/planner-belajar.jpeg",
+        rating: "5.0",
+        sold: "420",
+        description:
+            "Planner untuk membantu mengatur jadwal belajar dan tugas sekolah."
+    }
+
+];
+
+
+/* =====================================================
+   DATA
+===================================================== */
+
+let cart =
+    JSON.parse(
+        localStorage.getItem("rinaCart")
+    ) || [];
+
+let wishlist =
+    JSON.parse(
+        localStorage.getItem("rinaWishlist")
+    ) || [];
+
+let orders =
+    JSON.parse(
+        localStorage.getItem("rinaOrders")
+    ) || [];
+
+let currentUser =
+    JSON.parse(
+        localStorage.getItem("rinaUser")
+    ) || null;
+
+
+/* =====================================================
+   FORMAT RUPIAH
+===================================================== */
+
+function rupiah(number) {
+
+    return new Intl.NumberFormat(
+        "id-ID",
+        {
+            style: "currency",
+            currency: "IDR",
+            minimumFractionDigits: 0
+        }
+    ).format(number);
+
+}
+
+
+/* =====================================================
+   LOGIN CHECK
+===================================================== */
+
+window.onload = function() {
+
+    if (currentUser) {
+
+        showApp();
+
+    } else {
+
+        showLogin();
+
+    }
+
+};
+
+
+/* =====================================================
+   AUTH
+===================================================== */
+
+function showLogin() {
+
+    document
+        .getElementById("loginPage")
+        .classList.remove("hidden");
+
+    document
+        .getElementById("registerPage")
+        .classList.add("hidden");
+
+    document
+        .getElementById("app")
+        .classList.add("hidden");
+
+}
+
+
+function showRegister() {
+
+    document
+        .getElementById("loginPage")
+        .classList.add("hidden");
+
+    document
+        .getElementById("registerPage")
+        .classList.remove("hidden");
+
+}
+
+
+function register(event) {
+
+    event.preventDefault();
+
+    const name =
+        document
+        .getElementById("registerName")
+        .value;
+
+    const email =
+        document
+        .getElementById("registerEmail")
+        .value;
+
+    const password =
+        document
+        .getElementById("registerPassword")
+        .value;
+
+
+    const user = {
+
+        name,
+        email,
+        password
+
+    };
+
+
+    localStorage.setItem(
+        "rinaUser",
+        JSON.stringify(user)
+    );
+
+
+    alert(
+        "🎉 Pendaftaran berhasil!\nSilakan masuk ke Rina Store."
+    );
+
+
+    showLogin();
+
+}
+
+
+function login(event) {
+
+    event.preventDefault();
+
+    const email =
+        document
+        .getElementById("loginEmail")
+        .value;
+
+    const password =
+        document
+        .getElementById("loginPassword")
+        .value;
+
+
+    const savedUser =
+        JSON.parse(
+            localStorage.getItem("rinaUser")
+        );
+
+
+    if (!savedUser) {
+
+        alert(
+            "Akun belum tersedia. Silakan daftar terlebih dahulu."
+        );
+
+        return;
+
+    }
+
+
+    if (
+        email === savedUser.email &&
+        password === savedUser.password
+    ) {
+
+        currentUser = savedUser;
+
+        showApp();
+
+    } else {
+
+        alert(
+            "Email atau password salah."
+        );
+
+    }
+
+}
+
+
+function logout() {
+
+    currentUser = null;
+
+    localStorage.removeItem("rinaUser");
+
+    showLogin();
+
+}
+
+
+/* =====================================================
+   SHOW APP
+===================================================== */
+
+function showApp() {
+
+    document
+        .getElementById("loginPage")
+        .classList.add("hidden");
+
+    document
+        .getElementById("registerPage")
+        .classList.add("hidden");
+
+    document
+        .getElementById("app")
+        .classList.remove("hidden");
+
+
+    document
+        .getElementById("profileName")
+        .innerText =
+        currentUser.name;
+
+
+    document
+        .getElementById("profileEmail")
+        .innerText =
+        currentUser.email;
+
+
+    renderProducts();
+
+    updateCartCount();
+
+}
+
+
+/* =====================================================
+   PRODUCT
+===================================================== */
+
+function renderProducts(list = products) {
+
+    const container =
+        document.getElementById(
+            "productList"
+        );
+
+    container.innerHTML = "";
+
+
+    if (list.length === 0) {
+
+        container.innerHTML = `
+
+            <div class="empty"
+                 style="grid-column:1/-1;">
+
+                <div class="empty-icon">
+                    🔍
+                </div>
+
+                <h3>
+                    Produk tidak ditemukan
+                </h3>
+
+                <p>
+                    Coba gunakan kata kunci lain.
+                </p>
+
+            </div>
+
+        `;
+
+        return;
+
+    }
+
+
+    list.forEach(product => {
+
+        const isWishlisted =
+            wishlist.includes(product.id);
+
+
+        container.innerHTML += `
+
+            <div class="product">
+
+                <button
+                    class="wishlist-button"
+                    onclick="toggleWishlist(${product.id})">
+
+                    ${isWishlisted ? "❤️" : "🤍"}
+
+                </button>
+
+
+                <div
+                    class="product-image"
+                    onclick="openDetail(${product.id})"
+                    style="cursor:pointer;">
+
+                    ${product.image ? `<img src="${product.image}" alt="${product.name}" onerror="this.style.display='none'; this.parentElement.textContent='${product.icon}'">` : product.icon}
+
+                </div>
+
+
+                <div class="product-info">
+
+                    <div class="product-name">
+
+                        ${product.name}
+
+                    </div>
+
+                    <div class="price">
+
+                        ${rupiah(product.price)}
+
+                    </div>
+
+                    <div class="rating">
+
+                        ⭐ ${product.rating}
+                        • ${product.sold} terjual
+
+                    </div>
+
+
+                    <div class="product-buttons">
+
+                        <button
+                            onclick="openDetail(${product.id})">
+
+                            Detail
+
+                        </button>
+
+                        <button
+                            onclick="addToCart(${product.id})">
+
+                            + 🛒
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        `;
+
+    });
+
+}
+
+
+/* =====================================================
+   DETAIL
+===================================================== */
+
+function openDetail(id) {
+
+    const product =
+        products.find(
+            p => p.id === id
+        );
+
+
+    hideAllPages();
+
+    document
+        .getElementById("detailPage")
+        .classList.remove("hidden");
+
+
+    document
+        .getElementById("detailContent")
+        .innerHTML = `
+
+            <div class="detail-image">
+
+                ${product.image ? `<img src="${product.image}" alt="${product.name}" onerror="this.style.display='none'; this.parentElement.textContent='${product.icon}'">` : product.icon}
+
+            </div>
+
+
+            <div class="detail-info">
+
+                <h1>
+                    ${product.name}
+                </h1>
+
+                <div>
+                    ⭐ ${product.rating}
+                    • ${product.sold} terjual
+                </div>
+
+
+                <div class="detail-price">
+
+                    ${rupiah(product.price)}
+
+                </div>
+                <div class="detail-extra"><span>🚚 Pengiriman tersedia</span><span>📦 Stok demo tersedia</span><span>🏷️ Kategori: ${product.category}</span></div>
+
+
+                <p class="detail-description">
+
+                    ${product.description}
+
+                </p>
+
+
+                <div class="quantity-box">
+
+                    <button
+                        onclick="changeDetailQuantity(-1)">
+
+                        −
+
+                    </button>
+
+                    <span
+                        id="detailQuantity"
+                        class="quantity-number">
+
+                        1
+
+                    </span>
+
+                    <button
+                        onclick="changeDetailQuantity(1)">
+
+                        +
+
+                    </button>
+
+                </div>
+
+
+                <button
+                    class="primary-button"
+                    onclick="addDetailToCart(${product.id})">
+
+                    🛒 Tambahkan ke Keranjang
+
+                </button>
+
+
+                <button
+                    class="secondary-button"
+                    onclick="toggleWishlist(${product.id})">
+
+                    ❤️ Tambahkan ke Wishlist
+
+                </button>
+
+            </div>
+
+        `;
+
+
+    window.detailQuantity = 1;
+
+}
+
+
+function changeDetailQuantity(change) {
+
+    window.detailQuantity += change;
+
+
+    if (window.detailQuantity < 1) {
+
+        window.detailQuantity = 1;
+
+    }
+
+
+    document
+        .getElementById("detailQuantity")
+        .innerText =
+        window.detailQuantity;
+
+}
+
+
+function addDetailToCart(id) {
+
+    for (
+        let i = 0;
+        i < window.detailQuantity;
+        i++
+    ) {
+
+        addToCart(id, false);
+
+    }
+
+
+    alert(
+        "Produk berhasil ditambahkan ke keranjang! 🛒"
+    );
+
+}
+
+
+function showHome() {
+
+    hideAllPages();
+
+    document
+        .getElementById("homePage")
+        .classList.remove("hidden");
+
+}
+
+
+function scrollToProducts() {
+
+    document
+        .getElementById("productsSection")
+        .scrollIntoView({
+            behavior: "smooth"
+        });
+
+}
+
+
+/* =====================================================
+   CART
+===================================================== */
+
+function addToCart(id, showAlert = true) {
+
+    const existing =
+        cart.find(
+            item => item.id === id
+        );
+
+
+    if (existing) {
+
+        existing.quantity++;
+
+    } else {
+
+        cart.push({
+            id: id,
+            quantity: 1
+        });
+
+    }
+
+
+    saveCart();
+
+    updateCartCount();
+
+
+    if (showAlert) {
+
+        const product =
+            products.find(
+                p => p.id === id
+            );
+
+        alert(
+            product.name +
+            " berhasil ditambahkan ke keranjang! 🛒"
+        );
+
+    }
+
+}
+
+
+function saveCart() {
+
+    localStorage.setItem(
+        "rinaCart",
+        JSON.stringify(cart)
+    );
+
+}
+
+
+function updateCartCount() {
+
+    const total =
+        cart.reduce(
+            (sum, item) =>
+                sum + item.quantity,
+            0
+        );
+
+
+    document
+        .getElementById("cartCount")
+        .innerText =
+        total;
+
+}
+
+
+function openCart() {
+
+    renderCart();
+
+    document
+        .getElementById("cartModal")
+        .classList.remove("hidden");
+
+}
+
+
+function renderCart() {
+
+    const container =
+        document.getElementById(
+            "cartList"
+        );
+
+    const summary =
+        document.getElementById(
+            "cartSummary"
+        );
+
+
+    container.innerHTML = "";
+
+
+    if (cart.length === 0) {
+
+        container.innerHTML = `
+
+            <div class="empty">
+
+                <div class="empty-icon">
+                    🛒
+                </div>
+
+                <p>
+                    Keranjang masih kosong.
+                </p>
+
+            </div>
+
+        `;
+
+        summary.innerHTML = "";
+
+        return;
+
+    }
+
+
+    let subtotal = 0;
+
+
+    cart.forEach(item => {
+
+        const product =
+            products.find(
+                p => p.id === item.id
+            );
+
+
+        const itemTotal =
+            product.price *
+            item.quantity;
+
+
+        subtotal += itemTotal;
+
+
+        container.innerHTML += `
+
+            <div class="cart-item">
+
+                <div class="cart-icon">
+
+                    ${product.image ? `<img src="${product.image}" alt="${product.name}" onerror="this.style.display='none'; this.parentElement.textContent='${product.icon}'">` : product.icon}
+
+                </div>
+
+
+                <div class="cart-info">
+
+                    <strong>
+                        ${product.name}
+                    </strong>
+
+                    <div class="cart-price">
+
+                        ${rupiah(product.price)}
+
+                    </div>
+
+                </div>
+
+
+                <div class="quantity-control">
+
+                    <button
+                        onclick="changeCartQuantity(${product.id}, -1)">
+
+                        −
+
+                    </button>
+
+
+                    <span>
+                        ${item.quantity}
+                    </span>
+
+
+                    <button
+                        onclick="changeCartQuantity(${product.id}, 1)">
+
+                        +
+
+                    </button>
+
+                </div>
+
+
+                <button
+                    class="remove-button"
+                    onclick="removeFromCart(${product.id})">
+
+                    🗑️
+
+                </button>
+
+            </div>
+
+        `;
+
+    });
+
+
+    summary.innerHTML = `
+
+        <div style="
+            margin-top:20px;
+            border-top:1px solid #ddd;
+            padding-top:15px;
+        ">
+
+            <div class="summary-row">
+
+                <span>
+                    Subtotal
+                </span>
+
+                <strong>
+                    ${rupiah(subtotal)}
+                </strong>
+
+            </div>
+
+
+            <button
+                class="primary-button"
+                onclick="openCheckout()">
+
+                Lanjut ke Checkout
+
+            </button>
+
+        </div>
+
+    `;
+
+}
+
+
+function changeCartQuantity(id, change) {
+
+    const item =
+        cart.find(
+            item => item.id === id
+        );
+
+
+    if (!item) return;
+
+
+    item.quantity += change;
+
+
+    if (item.quantity <= 0) {
+
+        cart =
+            cart.filter(
+                item => item.id !== id
+            );
+
+    }
+
+
+    saveCart();
+
+    updateCartCount();
+
+    renderCart();
+
+}
+
+
+function removeFromCart(id) {
+
+    cart =
+        cart.filter(
+            item => item.id !== id
+        );
+
+
+    saveCart();
+
+    updateCartCount();
+
+    renderCart();
+
+}
+
+
+/* =====================================================
+   CHECKOUT
+===================================================== */
+
+function openCheckout() {
+
+    if (cart.length === 0) {
+
+        alert(
+            "Keranjang masih kosong."
+        );
+
+        return;
+
+    }
+
+
+    closeModal("cartModal");
+
+
+    document
+        .getElementById("checkoutModal")
+        .classList.remove("hidden");
+
+
+    document
+        .getElementById("checkoutName")
+        .value =
+        currentUser.name;
+
+
+    renderCheckoutSummary();
+
+}
+
+
+function renderCheckoutSummary() {
+
+    let subtotal = 0;
+
+
+    cart.forEach(item => {
+
+        const product =
+            products.find(
+                p => p.id === item.id
+            );
+
+
+        subtotal +=
+            product.price *
+            item.quantity;
+
+    });
+
+
+    const shipping = 10000;
+
+    const service = 1000;
+
+    const total =
+        subtotal +
+        shipping +
+        service;
+
+
+    document
+        .getElementById("checkoutSummary")
+        .innerHTML = `
+
+            <div class="card">
+
+                <div class="summary-row">
+
+                    <span>
+                        Subtotal
+                    </span>
+
+                    <span>
+                        ${rupiah(subtotal)}
+                    </span>
+
+                </div>
+
+
+                <div class="summary-row">
+
+                    <span>
+                        Ongkir
+                    </span>
+
+                    <span>
+                        ${rupiah(shipping)}
+                    </span>
+
+                </div>
+
+
+                <div class="summary-row">
+
+                    <span>
+                        Biaya layanan
+                    </span>
+
+                    <span>
+                        ${rupiah(service)}
+                    </span>
+
+                </div>
+
+
+                <div class="summary-row summary-total">
+
+                    <span>
+                        Total
+                    </span>
+
+                    <span>
+                        ${rupiah(total)}
+                    </span>
+
+                </div>
+
+            </div>
+
+        `;
+
+}
+
+
+function placeOrder() {
+
+    if (cart.length === 0) {
+
+        alert(
+            "Keranjang kosong."
+        );
+
+        return;
+
+    }
+
+
+    const name =
+        document
+        .getElementById("checkoutName")
+        .value;
+
+
+    const address =
+        document
+        .getElementById("checkoutAddress")
+        .value;
+
+
+    const payment =
+        document
+        .getElementById("paymentMethod")
+        .value;
+
+
+    if (!name || !address) {
+
+        alert(
+            "Lengkapi nama dan alamat terlebih dahulu."
+        );
+
+        return;
+
+    }
+
+
+    let subtotal = 0;
+
+
+    const orderProducts =
+        cart.map(item => {
+
+            const product =
+                products.find(
+                    p => p.id === item.id
+                );
+
+
+            subtotal +=
+                product.price *
+                item.quantity;
+
+
+            return {
+
+                id: product.id,
+                name: product.name,
+                icon: product.icon,
+                image: product.image,
+                price: product.price,
+                quantity: item.quantity
+
+            };
+
+        });
+
+
+    const shipping = 10000;
+
+    const service = 1000;
+
+    const total =
+        subtotal +
+        shipping +
+        service;
+
+
+    const order = {
+
+        id:
+            "RS-" +
+            Date.now(),
+
+        date:
+            new Date()
+            .toLocaleString("id-ID"),
+
+        products:
+            orderProducts,
+
+        subtotal,
+        shipping,
+        service,
+        total,
+
+        name,
+        address,
+        payment,
+
+        status:
+            "Diproses"
+
+    };
+
+
+    orders.unshift(order);
+
+
+    localStorage.setItem(
+        "rinaOrders",
+        JSON.stringify(orders)
+    );
+
+
+    cart = [];
+
+    saveCart();
+
+    updateCartCount();
+
+
+    closeModal(
+        "checkoutModal"
+    );
+
+
+    alert(
+        "🎉 Pesanan berhasil dibuat!\n\n" +
+        "Nomor pesanan: " +
+        order.id
+    );
+
+
+    openOrders();
+
+}
+
+
+/* =====================================================
+   WISHLIST
+===================================================== */
+
+function toggleWishlist(id) {
+
+    if (
+        wishlist.includes(id)
+    ) {
+
+        wishlist =
+            wishlist.filter(
+                item => item !== id
+            );
+
+        alert(
+            "Produk dihapus dari wishlist."
+        );
+
+    } else {
+
+        wishlist.push(id);
+
+        alert(
+            "Produk ditambahkan ke wishlist ❤️"
+        );
+
+    }
+
+
+    localStorage.setItem(
+        "rinaWishlist",
+        JSON.stringify(wishlist)
+    );
+
+
+    renderProducts();
+
+
+    if (
+        !document
+        .getElementById("wishlistPage")
+        .classList.contains("hidden")
+    ) {
+
+        renderWishlist();
+
+    }
+
+}
+
+
+function openWishlist() {
+
+    hideAllPages();
+
+    document
+        .getElementById("wishlistPage")
+        .classList.remove("hidden");
+
+    renderWishlist();
+
+}
+
+
+function renderWishlist() {
+
+    const container =
+        document.getElementById(
+            "wishlistList"
+        );
+
+
+    const items =
+        products.filter(
+            product =>
+                wishlist.includes(
+                    product.id
+                )
+        );
+
+
+    if (items.length === 0) {
+
+        container.innerHTML = `
+
+            <div
+                class="empty"
+                style="grid-column:1/-1;">
+
+                <div class="empty-icon">
+                    ❤️
+                </div>
+
+                <h3>
+                    Wishlist masih kosong
+                </h3>
+
+                <p>
+                    Tambahkan produk favoritmu.
+                </p>
+
+            </div>
+
+        `;
+
+        return;
+
+    }
+
+
+    container.innerHTML = "";
+
+
+    items.forEach(product => {
+
+        container.innerHTML += `
+
+            <div class="product">
+
+                <button
+                    class="wishlist-button"
+                    onclick="toggleWishlist(${product.id})">
+
+                    ❤️
+
+                </button>
+
+
+                <div
+                    class="product-image"
+                    onclick="openDetail(${product.id})">
+
+                    ${product.image ? `<img src="${product.image}" alt="${product.name}" onerror="this.style.display='none'; this.parentElement.textContent='${product.icon}'">` : product.icon}
+
+                </div>
+
+
+                <div class="product-info">
+
+                    <div class="product-name">
+
+                        ${product.name}
+
+                    </div>
+
+                    <div class="price">
+
+                        ${rupiah(product.price)}
+
+                    </div>
+
+
+                    <button
+                        class="primary-button"
+                        onclick="addToCart(${product.id})">
+
+                        🛒 Tambah ke Keranjang
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        `;
+
+    });
+
+}
+
+
+/* =====================================================
+   ORDERS
+===================================================== */
+
+function openOrders() {
+
+    hideAllPages();
+
+    document
+        .getElementById("ordersPage")
+        .classList.remove("hidden");
+
+    renderOrders();
+
+}
+
+
+function renderOrders() {
+
+    const container =
+        document.getElementById(
+            "ordersList"
+        );
+
+
+    if (orders.length === 0) {
+
+        container.innerHTML = `
+
+            <div class="empty">
+
+                <div class="empty-icon">
+                    📦
+                </div>
+
+                <h3>
+                    Belum ada pesanan
+                </h3>
+
+                <p>
+                    Pesanan yang kamu buat akan muncul di sini.
+                </p>
+
+            </div>
+
+        `;
+
+        return;
+
+    }
+
+
+    container.innerHTML = "";
+
+
+    orders.forEach(order => {
+
+        let productsHTML = "";
+
+
+        order.products.forEach(product => {
+
+            productsHTML += `
+
+                <div class="order-product">
+
+                    <div class="order-product-icon">
+
+                        ${product.image ? `<img src="${product.image}" alt="${product.name}" onerror="this.style.display='none'; this.parentElement.textContent='${product.icon}'">` : product.icon}
+
+                    </div>
+
+
+                    <div style="flex:1">
+
+                        <strong>
+                            ${product.name}
+                        </strong>
+
+                        <div style="
+                            font-size:13px;
+                            color:#777;
+                        ">
+
+                            ${product.quantity} barang
+
+                        </div>
+
+                    </div>
+
+
+                    <div>
+
+                        ${rupiah(
+                            product.price *
+                            product.quantity
+                        )}
+
+                    </div>
+
+                </div>
+
+            `;
+
+        });
+
+
+        container.innerHTML += `
+
+            <div class="order">
+
+                <div class="order-header">
+
+                    <div>
+
+                        <strong>
+                            ${order.id}
+                        </strong>
+
+                        <div style="
+                            font-size:12px;
+                            color:#777;
+                            margin-top:5px;
+                        ">
+
+                            ${order.date}
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="order-status">
+
+                        ${order.status}
+
+                    </div>
+
+                </div>
+                <div class="tracking-panel"><b>🚚 Pelacakan Pesanan</b><div class="tracking-steps">${trackingStepsHTML(order.status)}</div><button class="secondary-button" style="width:auto;padding:8px 12px" onclick="advanceTracking('${order.id}')">Perbarui status (demo)</button></div>
+
+                ${productsHTML}
+
+
+                <div class="order-total">
+
+                    Total:
+                    ${rupiah(order.total)}
+
+                </div>
+
+
+                <div style="
+                    margin-top:10px;
+                    font-size:13px;
+                    color:#777;
+                ">
+
+                    💳 ${order.payment}
+
+                </div>
+
+            </div>
+
+        `;
+
+    });
+
+}
+
+
+/* =====================================================
+   PROFILE
+===================================================== */
+
+function openProfile() {
+
+    hideAllPages();
+
+    document
+        .getElementById("profilePage")
+        .classList.remove("hidden");
+
+}
+
+
+/* =====================================================
+   SEARCH
+===================================================== */
+
+function openHome() {
+    hideAllPages();
+    document.getElementById("homePage").classList.remove("hidden");
+    renderProducts();
+    window.scrollTo({ top: 0, behavior: "smooth" });
+}
+
+function searchProduct() {
+
+    const keyword =
+        document
+        .getElementById("searchInput")
+        .value
+        .toLowerCase();
+
+
+    const filtered =
+        products.filter(
+            product =>
+                product.name
+                .toLowerCase()
+                .includes(keyword)
+        );
+
+
+    hideAllPages();
+
+    document
+        .getElementById("homePage")
+        .classList.remove("hidden");
+
+
+    renderProducts(filtered);
+
+
+    document
+        .getElementById("productsSection")
+        .scrollIntoView({
+            behavior: "smooth"
+        });
+
+}
+
+
+/* =====================================================
+   CATEGORY
+===================================================== */
+
+function filterCategory(category) {
+
+    let filtered;
+
+
+    if (category === "Semua") {
+
+        filtered = products;
+
+    } else {
+
+        filtered =
+            products.filter(
+                product =>
+                    product.category ===
+                    category
+            );
+
+    }
+
+
+    hideAllPages();
+
+    document
+        .getElementById("homePage")
+        .classList.remove("hidden");
+
+
+    renderProducts(filtered);
+
+
+    document
+        .getElementById("productsSection")
+        .scrollIntoView({
+            behavior: "smooth"
+        });
+
+}
+
+
+/* PROMO CAROUSEL */
+const rinaPromos = [
+ {kicker:'🌸 Rina Store • Pilihan Lokal',title:'Produk Lokal,<br>Belajar Makin Seru!',text:'Temukan kebutuhan sekolah pilihan dengan harga bersahabat.',art:'🎒📚',bg:'linear-gradient(110deg,#ff3f91,#ff6d7f 55%,#ff9d6c)'},
+ {kicker:'⚡ PROMO HARI INI',title:'Paket Hemat<br>Teman Belajarmu!',text:'Lengkapi alat belajar dengan pilihan praktis untuk pelajar.',art:'✏️🧮',bg:'linear-gradient(110deg,#e83e8c,#9c4dcc)'},
+ {kicker:'🎀 MITRA RINA STORE',title:'Punya Produk?<br>Yuk Mulai Jualan!',text:'Gabung sebagai mitra dan siapkan toko versimu sendiri.',art:'🛍️🤝',bg:'linear-gradient(110deg,#f04f9b,#ffb36b)'}
+];
+let activePromo = 0;
+function setPromo(index){ activePromo=index; const p=rinaPromos[index]; const main=document.querySelector('.promo-main'); if(!main)return; document.getElementById('promoKicker').innerHTML=p.kicker;document.getElementById('promoTitle').innerHTML=p.title;document.getElementById('promoText').textContent=p.text;document.getElementById('promoArt').textContent=p.art;main.style.background=p.bg;document.querySelectorAll('#promoDots button').forEach((b,i)=>b.classList.toggle('active',i===index)); }
+setInterval(()=>setPromo((activePromo+1)%rinaPromos.length),5000);
+
+/* JOIN MITRA - local demo registration */
+function openMitra(){hideAllPages();document.getElementById('mitraPage').classList.remove('hidden');const saved=JSON.parse(localStorage.getItem('rinaMitra')||'null');document.getElementById('mitraRegisterPanel').classList.toggle('hidden',!!saved);document.getElementById('mitraStatusPanel').classList.toggle('hidden',!saved);document.getElementById('mitraTypePanel').classList.toggle('hidden',!(saved&&saved.approved));if(saved){const date=new Date(saved.joinedAt||Date.now());const dateText=date.toLocaleDateString('id-ID',{day:'2-digit',month:'long',year:'numeric'});const certNo=saved.certificateNo||('RS-MITRA-'+date.getFullYear()+'-'+String(Math.abs(hashMitra(saved.email||saved.shop))).padStart(5,'0'));saved.certificateNo=certNo;localStorage.setItem('rinaMitra',JSON.stringify(saved));document.getElementById('mitraStatusPanel').innerHTML=`<h2>👋 Halo, ${escapeMitra(saved.name)}!</h2><p>Toko: <b>${escapeMitra(saved.shop)}</b></p><p>Status: <b>${saved.approved?'Diterima (simulasi demo)':'Menunggu pemeriksaan'}</b></p><p>Jenis usaha: ${escapeMitra(saved.interest)}</p>${saved.approved?`<div class="mitra-certificate" id="mitraCertificate"><div class="certificate-seal">✓</div><div class="certificate-title">Bukti Penerimaan Mitra</div><p>Dengan ini <b>${escapeMitra(saved.name)}</b> dari toko <b>${escapeMitra(saved.shop)}</b> tercatat sebagai mitra Rina Store dalam simulasi website.</p><p>Bidang usaha: <b>${escapeMitra(saved.interest)}</b></p><p class="certificate-number">No. ${certNo}</p><div class="certificate-meta">Diterbitkan pada ${dateText}<br>Rina Store • Marketplace Edukasi<br><i>Dokumen demo — bukan persetujuan bisnis resmi</i></div><button class="primary-button" style="max-width:240px;margin:18px auto 0" onclick="printMitraCertificate()">🖨️ Cetak / Simpan PDF</button></div>`:''}<button class="secondary-button" style="width:auto;margin-top:12px" onclick="mitraLogout()">Keluar dari akun mitra</button>`;}}
+function hashMitra(value){let h=0;for(let i=0;i<value.length;i++)h=(h*31+value.charCodeAt(i))|0;return h;}
+function escapeMitra(value){return String(value||'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
+function printMitraCertificate(){window.print();}
+function submitMitra(e){e.preventDefault();const data={name:document.getElementById('mitraName').value.trim(),email:document.getElementById('mitraEmail').value.trim(),phone:document.getElementById('mitraPhone').value.trim(),shop:document.getElementById('mitraShop').value.trim(),password:document.getElementById('mitraPassword').value,interest:document.getElementById('mitraInterest').value,approved:true,joinedAt:new Date().toISOString(),sellingType:''};localStorage.setItem('rinaMitra',JSON.stringify(data));alert('Pendaftaran mitra tersimpan dalam demo! Status persetujuan otomatis hanya simulasi, belum diverifikasi oleh server.');openMitra();}
+function chooseMitraType(type){const m=JSON.parse(localStorage.getItem('rinaMitra')||'null');if(!m)return;m.sellingType=type;localStorage.setItem('rinaMitra',JSON.stringify(m));const el=document.getElementById('mitraSelected');el.classList.remove('hidden');el.innerHTML=`<div class="tracking-panel"><h3>✅ Pilihan toko tersimpan</h3><p><b>${type}</b></p><p>Langkah berikutnya: siapkan nama produk, foto, deskripsi, harga, dan stok sebelum mulai berjualan.</p><button class="primary-button" onclick="openHome()">Kembali ke Rina Store</button></div>`;}
+function mitraLogout(){localStorage.removeItem('rinaMitra');openMitra();}
+function trackingStepsHTML(status){const steps=['Diproses','Dikemas','Dikirim','Selesai'];let idx=steps.indexOf(status);if(idx<0)idx=0;return steps.map((s,i)=>`<div class="tracking-step ${i<=idx?'done':''}">${i<=idx?'✓':'○'}<br>${s}</div>`).join('');}
+function advanceTracking(id){const order=orders.find(o=>o.id===id);if(!order)return;const steps=['Diproses','Dikemas','Dikirim','Selesai'];const i=steps.indexOf(order.status);order.status=steps[Math.min(i+1,steps.length-1)];localStorage.setItem('rinaOrders',JSON.stringify(orders));renderOrders();}
+
+/* =====================================================
+   PAGE MANAGEMENT
+===================================================== */
+
+function hideAllPages() {
+
+    const pages = [
+
+        "homePage",
+        "detailPage",
+        "wishlistPage",
+        "ordersPage",
+        "profilePage",
+        "mitraPage"
+
+    ];
+
+
+    pages.forEach(id => {
+
+        document
+            .getElementById(id)
+            .classList.add("hidden");
+
+    });
+
+}
+
+
+/* =====================================================
+   MODAL
+===================================================== */
+
+function closeModal(id) {
+
+    document
+        .getElementById(id)
+        .classList.add("hidden");
+
+}
+
+
+/* =====================================================
+   CLOSE MODAL CLICK OUTSIDE
+===================================================== */
+
+document.addEventListener(
+    "click",
+    function(event) {
+
+        if (
+            event.target.classList
+            .contains("modal")
+        ) {
+
+            event.target
+                .classList
+                .add("hidden");
+
+        }
+
+    }
+);
+
+</script>
+
+</body>
+</html>
